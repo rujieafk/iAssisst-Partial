@@ -57,6 +57,7 @@ import { variables } from '../../variables';
   
     const handleFormSubmit = async (e) => {
       e.preventDefault();
+      console.log("HELLO WORLD");
       // try {
       //   const response = await fetch(variables.API_URL + 'UploadEmp/' + employeeId, {
       //     method: 'PUT',
@@ -103,8 +104,8 @@ import { variables } from '../../variables';
                             <div className="card-body">
                               <div className="tab-content">
                                 <div className="card-body">
-                                  <div className="d-flex justify-content-center">
-                                    <input type="file" className="form-control-file bordered-row" aria-describedby="fileHelp"/>
+                                  <div className="d-flex justify-content-left">
+                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
@@ -129,8 +130,8 @@ import { variables } from '../../variables';
                             <div className="card-body">
                               <div className="tab-content">
                                 <div className="card-body">
-                                  <div className="d-flex justify-content-center">
-                                    <input type="file" className="form-control-file" aria-describedby="fileHelp"/>
+                                  <div className="d-flex justify-content-left">
+                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
@@ -155,8 +156,8 @@ import { variables } from '../../variables';
                             <div className="card-body">
                               <div className="tab-content">
                                 <div className="card-body">
-                                  <div className="d-flex justify-content-center">
-                                    <input type="file" className="form-control-file" aria-describedby="fileHelp"/>
+                                  <div className="d-flex justify-content-left">
+                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
@@ -181,8 +182,8 @@ import { variables } from '../../variables';
                             <div className="card-body">
                               <div className="tab-content">
                                 <div className="card-body">
-                                  <div className="d-flex justify-content-center">
-                                    <input type="file" className="form-control-file" aria-describedby="fileHelp"/>
+                                  <div className="d-flex justify-content-left">
+                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
