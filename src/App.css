@@ -290,3 +290,9 @@
   width: 64%;
   margin-bottom: 30px;
 }
+
+.loan-row{
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: 25vw 25vw;
+}

@@ -9,7 +9,7 @@ import { variables } from '../../variables';
  function MaternityBenefit() {
    
     const { employeeId } = useParams();
-    const [selected, setSelected] = useState('0')
+    const [selected, setSelected] = useState("0")
     const [employeeData, setEmployeeData] = useState({
       LastName: '',
       FirstName: '',
@@ -140,11 +140,11 @@ import { variables } from '../../variables';
                                         <select className="form-control" id="deliveryType" name="deliveryType" value={employeeData.deliveryType} onChange={handleInputChange}>
                                           <option value="0">Select Type</option>
                                           <option value="1">Live Child Birth</option>
-                                          <option value="2">Miscarriage</option>
-                                          <option value="3">Emergency Termination of Pregnancy</option>
-                                          <option value="4">Ectopic Pregnancy</option>
-                                          <option value="5">Still Birth</option>
-                                          <option value="6">Fetal Death</option>
+                                          <option value="Miscarriage">Miscarriage</option>
+                                          <option value="Emergency Termination of Pregnancy">Emergency Termination of Pregnancy</option>
+                                          <option value="Ectopic Pregnancy">Ectopic Pregnancy</option>
+                                          <option value="Still Birth">Still Birth</option>
+                                          <option value="Fetal Death">Fetal Death</option>
                                         </select>
                                       </div>
                                     </div>
@@ -153,12 +153,12 @@ import { variables } from '../../variables';
                                   <div className="vertical-line"></div>
                                     <div className="card-body">
                                       <div className="d-flex justify-content-left ">
-                                        { selected == '0' && (
+                                        { selected === "0" && (
                                           <div className="no-selected">
                                             <label >Select a type of delivery</label>  
                                           </div>
                                         )}
-                                        { selected == '1' && selected != '0' && (
+                                        { selected === "1" && selected !== "0" && (
                                         <div className="row justify-content-left content-holder">
                                           <div className="form-group">
                                             <label htmlFor="middleName">Live Birth</label>  
@@ -176,10 +176,10 @@ import { variables } from '../../variables';
                                         </div> 
                                         )}
                                          
-                                        { selected != '1' && selected != '0' && (
+                                        { selected !== '1' && selected !== '0' && (
                                         <div className="row justify-content-left content-holder">
                                           <div className="form-group">
-                                            <label htmlFor="middleName">If Terminated</label>  
+                                            <label htmlFor="middleName">{employeeData.deliveryType}</label>  
                                           </div>
                                           <div className="form-group">
                                             <label htmlFor="middleName">Proof of Termination (If Still Birth/Fetal Death)</label> 
