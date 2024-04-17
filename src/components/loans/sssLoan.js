@@ -64,7 +64,7 @@ function SSSLoan() {
         formData.append('Disclosure_Statement', thisInfo.Disclosure_Statement); // Assuming thisInfo.Disclosure_Statement is a File object
       
         try {
-            const response = await fetch('/upload', {
+            const response = await fetch('/SSS_upload', {
                 method: 'POST',
                 body: formData,
             });

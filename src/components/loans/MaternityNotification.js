@@ -28,7 +28,14 @@ import { variables } from '../../variables';
       ContactNumber: '',
       EmailAddress: ''
     });
-  
+
+    const [thisInfo, setThisInfo] = useState({
+      Notication_Form: '',
+      Maternity_Eligibility: '',
+      Credit_Form: '',
+      Medical_Reports: ''
+    });
+
     useEffect(() => {
       // Fetch employee data based on employeeId
       const fetchEmployeeData = async () => {
@@ -57,23 +64,47 @@ import { variables } from '../../variables';
   
     const handleFormSubmit = async (e) => {
       e.preventDefault();
-      console.log("HELLO WORLD");
-      // try {
-      //   const response = await fetch(variables.API_URL + 'UploadEmp/' + employeeId, {
-      //     method: 'PUT',
-      //     headers: {
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify(employeeData)
-      //   });
-      //   if (!response.ok) {
-      //     throw new Error('Failed to update employee');
-      //   }
-      //   // Handle successful update
-      //   console.log('Employee updated successfully');
-      // } catch (error) {
-      //   console.error('Error updating employee:', error);
-      // }
+      const formData = new FormData();
+      formData.append('Notication_Form', thisInfo.Notication_Form);
+      formData.append('Maternity_Eligibility', thisInfo.Maternity_Eligibility);
+      formData.append('Credit_Form', thisInfo.Credit_Form);
+      formData.append('Medical_Reports', thisInfo.Medical_Reports);
+  
+      console.log(thisInfo.Notication_Form);
+      console.log(thisInfo.Maternity_Eligibility);
+      console.log(thisInfo.Credit_Form);
+      console.log(thisInfo.Medical_Reports);
+
+        try {
+          const response = await fetch('/Maternity_upload', {
+            method: 'POST',
+            body: formData,
+          });
+    
+          if (response.ok) {
+            const jsonResponse = await response.json();
+            console.log(formData);
+            console.log(jsonResponse.message);
+    
+          } else {
+            console.error('Failed to upload PDF:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error uploading PDF:', error);
+        }
+    };
+  
+    const handleNotication_Form = (e) => {
+      setThisInfo({ ...thisInfo, Notication_Form: e.target.files[0] });
+    };
+    const handMaternity_Eligibility = (e) => {
+      setThisInfo({ ...thisInfo, Maternity_Eligibility: e.target.files[0] });
+    };
+    const handleCredit_Form = (e) => {
+      setThisInfo({ ...thisInfo, Credit_Form: e.target.files[0] });
+    };
+    const handleMedical_Reports = (e) => {
+      setThisInfo({ ...thisInfo, Medical_Reports: e.target.files[0] });
     };
   
     if (!employeeData) {
@@ -105,7 +136,7 @@ import { variables } from '../../variables';
                               <div className="tab-content">
                                 <div className="card-body">
                                   <div className="d-flex justify-content-left">
-                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
+                                    <input type="file" className="input-file" aria-describedby="fileHelp" onChange={handleNotication_Form}/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
@@ -131,7 +162,7 @@ import { variables } from '../../variables';
                               <div className="tab-content">
                                 <div className="card-body">
                                   <div className="d-flex justify-content-left">
-                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
+                                    <input type="file" className="input-file" aria-describedby="fileHelp" onChange={handMaternity_Eligibility}/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
@@ -157,7 +188,7 @@ import { variables } from '../../variables';
                               <div className="tab-content">
                                 <div className="card-body">
                                   <div className="d-flex justify-content-left">
-                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
+                                    <input type="file" className="input-file" aria-describedby="fileHelp" onChange={handleCredit_Form}/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>
@@ -183,7 +214,7 @@ import { variables } from '../../variables';
                               <div className="tab-content">
                                 <div className="card-body">
                                   <div className="d-flex justify-content-left">
-                                    <input type="file" className="input-file" aria-describedby="fileHelp"/>
+                                    <input type="file" className="input-file" aria-describedby="fileHelp" onChange={handleMedical_Reports}/>
                                     <small id="fileHelp" className="form-text text-muted">Choose a file to upload.</small>
                                   </div>
                                 </div>

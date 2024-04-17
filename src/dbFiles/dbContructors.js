@@ -1,4 +1,4 @@
-class dbContructors{
+class sss_dbContructors{
     constructor(Application_Date, Transaction_Number, paySlipFiles, disclosureStatementFiles){
         this.Application_Date = Application_Date;
         this.Transaction_Number = Transaction_Number;
@@ -6,4 +6,23 @@ class dbContructors{
         this.disclosureStatementFiles = disclosureStatementFiles;
     }
 }
-module.exports = dbContructors;
+module.exports = sss_dbContructors;
+class sss_dbContructorsv2{
+    constructor(Application_Date, Transaction_Number, paySlipFiles, disclosureStatementFiles){
+        this.Application_Date = Application_Date;
+        this.Transaction_Number = Transaction_Number;
+        this.paySlipFiles = paySlipFiles;
+        this.disclosureStatementFiles = disclosureStatementFiles;
+    }
+}
+
+
+class pagibig_dbContructorsv2{
+    constructor(Action, paySlip, Screenshot_Virtual, GrossIncome){
+        this.Action = Action;
+        this.paySlip = paySlip;
+        this.Screenshot_Virtual = Screenshot_Virtual;
+        this.GrossIncome = GrossIncome;
+    }
+}
+module.exports = pagibig_dbContructorsv2;
