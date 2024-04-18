@@ -69,11 +69,6 @@ import { variables } from '../../variables';
       formData.append('Maternity_Eligibility', thisInfo.Maternity_Eligibility);
       formData.append('Credit_Form', thisInfo.Credit_Form);
       formData.append('Medical_Reports', thisInfo.Medical_Reports);
-  
-      console.log(thisInfo.Notication_Form);
-      console.log(thisInfo.Maternity_Eligibility);
-      console.log(thisInfo.Credit_Form);
-      console.log(thisInfo.Medical_Reports);
 
         try {
           const response = await fetch('/Maternity_upload', {
